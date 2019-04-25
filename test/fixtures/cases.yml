@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  assigned_to: 1
+  gender_preference: MyString
+  type: 
+  content: MyString
+  activated: false
+
+two:
+  user: two
+  assigned_to: 1
+  gender_preference: MyString
+  type: 
+  content: MyString
+  activated: false
