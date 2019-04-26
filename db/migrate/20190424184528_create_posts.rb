@@ -1,8 +1,8 @@
-class CreateCases < ActiveRecord::Migration[5.2]
+class CreatePosts < ActiveRecord::Migration[5.2]
   def change
-    create_table :cases do |t|
-      t.belongs_to :user, foreign_key: true
-      t.integer :assigned_to
+    create_table :posts do |t|
+      t.integer :student_id
+      t.integer :counselor_id
       t.string :gender_preference
       t.string :type
       t.string :content

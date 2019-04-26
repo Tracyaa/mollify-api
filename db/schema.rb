@@ -15,16 +15,15 @@ ActiveRecord::Schema.define(version: 2019_04_24_184528) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cases", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "assigned_to"
+  create_table "posts", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "counselor_id"
     t.string "gender_preference"
     t.string "type"
     t.string "content"
     t.boolean "activated", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,13 +32,12 @@ ActiveRecord::Schema.define(version: 2019_04_24_184528) do
     t.string "password_digest"
     t.string "gender"
     t.integer "age"
-    t.string "role"
+    t.string "role", default: "student"
     t.string "school"
     t.string "location"
-    t.boolean "has_a_case", default: false
+    t.boolean "has_a_post", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cases", "users"
 end

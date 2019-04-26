@@ -1,17 +1,19 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :cases
+  has_many :situations, class_name: 'Post', foreign_key: :student_id
+  has_many :inquiries, class_name: 'Post', foreign_key: :counselor_id
 
-  validates :email, :uniqueness => true
+  has_many :students, through: :inquiries
+  # validates :email, :uniqueness => true
 
   # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :password, :presence => true,
-  :confirmation => true,
-  :length => {:within => 6..16},
-  :on => :create
-  validates :password, :confirmation => true,
-  :length => {:within => 6..16},
-  :allow_blank => true,
-  :on => :update
+  # validates :password, :presence => true,
+  # :confirmation => true,
+  # :length => {:within => 6..16},
+  # :on => :create
+  # validates :password, :confirmation => true,
+  # :length => {:within => 6..16},
+  # :allow_blank => true,
+  # :on => :update
 end

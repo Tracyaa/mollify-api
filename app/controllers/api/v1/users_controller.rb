@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  
   before_action :find_user, only: [:update]
 
   def index
@@ -29,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password, :password_confirmation, :gender, :age, :role, :school, :location, :has_a_case)
+    params.permit(:name, :email, :password, :password_confirmation, :gender, :age, :school, :location)
   end
 
   def find_user

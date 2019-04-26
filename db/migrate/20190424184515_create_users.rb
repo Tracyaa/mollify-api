@@ -6,10 +6,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :gender
       t.integer :age
-      t.string :role
+      t.string :role, default: 'student'
       t.string :school, default: nil
       t.string :location, default: nil
-      t.boolean :has_a_case, default: false
+      t.boolean :has_a_post, default: false
 
       t.timestamps
     end
