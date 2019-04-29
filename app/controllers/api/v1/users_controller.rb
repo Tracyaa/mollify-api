@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  
+
   before_action :find_user, only: [:update]
 
   def index
@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.valid?
       @token = JWT.encode({user_id: @user.id}, "secret")
-      render json: { user: @user.username, jwt: @token }, status: :created
+      render json: { user: @user, jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
