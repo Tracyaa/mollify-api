@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :type
       t.string :content
       t.boolean :activated, default: false
+      t.boolean :requested, default: false
 
       t.timestamps
     end

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_184528) do
     t.string "type"
     t.string "content"
     t.boolean "activated", default: false
+    t.boolean "requested", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

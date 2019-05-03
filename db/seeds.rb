@@ -23,9 +23,9 @@ User.create(name:'Greg', email:'greg@greg.com', password: '12345', gender:'other
 User.create(name:'Corgi', email:'corgi@corgi.com', password: '12345', gender:'male', age: 23, role: 'counselor', location:'New York')
 
 Post.create(student_id: 2, gender_preference: 'male', type: nil, content: 'I got bullied')
-Post.create(student_id: 4, counselor_id: 8, gender_preference: 'other', type: nil, content: "I want to jump off the window", activated: true)
+Post.create(student_id: 4, counselor_id: 8, gender_preference: 'other', type: nil, content: "I want to jump off the window", requested: true, activated: true)
 Post.create(student_id: 5, gender_preference: 'female', type: nil, content: "I might be gay")
-Post.create(student_id: 6, counselor_id: 9, gender_preference: 'female', type: nil, content: "Today is a nice day, but I don't wana to do anything", activated: true)
+Post.create(student_id: 6, counselor_id: 9, gender_preference: 'female', type: nil, content: "Today is a nice day, but I don't wana to do anything", requested: true, activated: true)
 
 
 
