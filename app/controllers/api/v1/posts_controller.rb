@@ -28,7 +28,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:student_id, :counselor_id, :gender_preference, :type, :content, :activated, :requested)
+    params.permit(:student_id, :counselor_id, :gender_preference, :type, :content, :activated, :requested, :video_room_link, :video_room_name)
   end
 
   def find_post

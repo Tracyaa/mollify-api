@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_184528) do
+ActiveRecord::Schema.define(version: 2019_05_07_214531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_04_24_184528) do
     t.boolean "requested", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_room_link"
+    t.string "video_room_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,6 +35,10 @@ ActiveRecord::Schema.define(version: 2019_04_24_184528) do
     t.string "password_digest"
     t.string "gender"
     t.integer "age"
+    t.string "bio"
+    t.integer "rating"
+    t.string "title"
+    t.string "img_url"
     t.string "role", default: "student"
     t.string "school"
     t.string "location"

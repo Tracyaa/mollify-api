@@ -27,7 +27,41 @@ Post.create(student_id: 4, counselor_id: 8, gender_preference: 'other', type: ni
 Post.create(student_id: 5, gender_preference: 'female', type: nil, content: "I might be gay")
 Post.create(student_id: 6, counselor_id: 9, gender_preference: 'female', type: nil, content: "Today is a nice day, but I don't wana to do anything", requested: true, activated: true)
 
+# api_key = '580023c18b06bdf56399afd6824c119e'
+# resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?query=mental&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=' + api_key
+# json = open(resource_url)
+# parsed = ActiveSupport::JSON.decode(json)
+# require 'rest-client'
+# require 'json'
+require 'net/http'
+require 'open-uri'
+require 'json'
+require 'faker'
 
+def fetch_api
+  api_key = '580023c18b06bdf56399afd6824c119e'
+  resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?query=mental&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=' + api_key;
 
+	uri = URI.parse(resource_url)
+	response = Net::HTTP.get_response(uri)
+	character_hash = JSON.parse(response.body)
+  return character_hash["data"]
+end
 
+def load_doctors
+  doctors = fetch_api
+  doctors.each do |doc|
+    a = User.create(
+      name: doc['profile']['first_name'] + ' ' + doc['profile']['last_name'],
+      email: doc['profile']['first_name'].downcase + '@' + doc['profile']['first_name'].downcase + '.com',
+      gender: doc['profile']['gender'],
+      age: rand(25...50),
+      school: Faker::University.name,
+      password: 'abc',
+      role: 'counselor'
+    )
+  end
+end
+
+load_doctors
 #####

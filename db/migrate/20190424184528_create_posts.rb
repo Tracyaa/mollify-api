@@ -6,6 +6,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :gender_preference
       t.string :type
       t.string :content
+      t.string :video_room_link
+      t.string :video_room_name
       t.boolean :activated, default: false
       t.boolean :requested, default: false
 
