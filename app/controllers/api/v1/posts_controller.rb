@@ -1,6 +1,6 @@
 class Api::V1::PostsController < ApplicationController
 
-  before_action :find_post, only: [:update]
+  before_action :find_post, only: [:update, :destroy]
 
   def index
     @posts = Post.all
@@ -23,6 +23,11 @@ class Api::V1::PostsController < ApplicationController
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessible_entity
     end
+  end
+
+  def destroy
+    render json: @post
+    @post.destroy
   end
 
   private
