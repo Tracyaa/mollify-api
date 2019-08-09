@@ -26,8 +26,10 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def destroy
+    user = @post.user
     render json: @post
     @post.destroy
+    render json: @post.user, status: :accepted
   end
 
   private
