@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   has_many :students, through: :inquiries
 
-  validates :password, :confirmation => true
-  validates :email, :uniqueness => true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # validates :password, :confirmation => true
+  # validates :email, :uniqueness => true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   # :length => {:within => 6..16},
   # :on => :create
