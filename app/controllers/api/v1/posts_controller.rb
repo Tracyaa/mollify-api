@@ -26,8 +26,8 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
     render json: @post
+    @post.destroy
   end
 
   private
